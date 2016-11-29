@@ -24,10 +24,10 @@ import { Component,Input,Output } from 'angular2/core';
 
 export class VoterComponent {
 
-    @Output() n = 0; 
-    @Input() normal = true;
-    @Input() upVote = false;
-    @Input() downVote = false;
+    @Input() n = 0; 
+    normal = true;
+    upVote = false;
+    downVote = false;
 
     upClick() {
         if (!this.upVote || this.normal) {

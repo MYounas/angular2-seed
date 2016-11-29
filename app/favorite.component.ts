@@ -3,7 +3,6 @@ import { Component,Input,Output,EventEmitter } from 'angular2/core';
 @Component({
     selector:'favorite',
     templateUrl:'app/favorite.template.html',
-    // inputs:['isFavorite:is-favorite']
     styles:[`
         .glyphicon-star{
             color:orange;
