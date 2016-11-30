@@ -1,21 +1,21 @@
 import {Component} from 'angular2/core';
+import{SummaryPipe} from './summary.pipe';
 
 @Component({
     selector: 'my-app',
     template: `
-        <ul class="nav nav-pills">
-            <li [class.active]="viewMode=='map'"><a (click)="viewMode='map'">Map View</a></li>
-            <li [class.active]="viewMode=='list'"><a (click)="viewMode='list'">List View</a></li>
-        </ul>
-        <div [ngSwitch]="viewMode">
-            <template [ngSwitchWhen]="'map'" ngSwitchDefault>Map view content</template>
-            <template [ngSwitchWhen]="'list'">List view content</template>
-        </div>
+        {{post.body|summary}}
     `,
+    pipes:[SummaryPipe]
 })
 export class AppComponent { 
     
-    viewMode='map';
+    post={
+        title:"MY name",
+        body:`
+            is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+        `
+    }
 
 }
 
