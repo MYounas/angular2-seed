@@ -1,23 +1,16 @@
 import {Component} from 'angular2/core';
-import {FavoriteComponent} from './favorite.component';
+import {BootstrapPanel} from './bootstrap.panel.component';
 
 @Component({
     selector: 'my-app',
     template: `
-        <favorite [is-favorite]="post.isFavorite" (change)="onFavoriteChange($event)"></favorite>
+        <bs-panel>
+            <div class="heading">Name</div>
+            <div class="body">Hi Younas!</div>
+        </bs-panel>
     `,
-    directives:[FavoriteComponent]
+    directives:[BootstrapPanel]
 })
 export class AppComponent { 
-    
-    post={
-        title:"Title",
-        isFavorite:true
-    }
-
-    onFavoriteChange($event){
-        console.log($event);
-    }
-
 }
 
