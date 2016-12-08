@@ -1,16 +1,27 @@
 import {Component} from 'angular2/core';
-import {BootstrapPanel} from './bootstrap.panel.component';
+import {ZippyComponent} from './zippy.component';
 
 @Component({
     selector: 'my-app',
     template: `
-        <bs-panel>
-            <div class="heading">Name</div>
-            <div class="body">Hi Younas!</div>
-        </bs-panel>
+    <div *ngFor="#user of data">
+        <zippy [title]="user.title">
+            <div>{{user.content}}</div>
+        </zippy>
+    </div>
     `,
-    directives:[BootstrapPanel]
+    directives:[ZippyComponent]
 })
-export class AppComponent { 
+export class AppComponent {
+    data=[
+        {
+            title:"Who can see my stuff?",
+            content:"Content who can see my status"
+        },
+        {
+            title:"Who can contact me?",
+            content:"My friends can contact me"
+        },
+    ] 
 }
 
