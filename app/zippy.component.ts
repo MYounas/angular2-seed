@@ -3,24 +3,29 @@ import {Component,Input} from 'angular2/core';
 @Component({
     selector:'zippy',
     template:`
-        <div class="panel panel-default">
-            <div class="panel-body" (click)="onClick()">
+        <div class="zippy">
+            <div class="zippy-title" (click)="onClick()">
                 <b>{{title}}</b>
-                <span class="pull-right glyphicon" [ngClass]="{
+                <i class="pull-right glyphicon" [ngClass]="{
                     'glyphicon-chevron-down':!up,
                     'glyphicon-chevron-up':up
                 }">
-                </span>
+                </i>
             </div>
-            <div class="panel-body">
-                <ng-content *ngIf="up"></ng-content>
+            <div *ngIf="up" class="zippy-content">
+                <ng-content></ng-content>
             </div>
         <div>
     `,
     styles:[`
-        .myStyle:hover{
+        .zippy-title:hover{
             cursor:pointer;
-            color:#F5F5F5;
+            background:#F5F5F5;
+        }
+        .zippy-title,.zippy-content{
+            border:1px solid #F5F5F5;
+            border-radius:2px; 
+            padding:20px;
         }
     `]
 })
